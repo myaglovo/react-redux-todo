@@ -10,12 +10,13 @@ function App() {
   const dispatch = useDispatch();
 
   const addTask = () => {
-    dispatch(addTodo({ text }));
+    if (text.trim()) {
+      dispatch(addTodo({ text }));
+      setText("");
+    } else {
+      alert("Введите текст!");
+    }
   };
-
-  // const removeTodo = (id) => {
-  //   setTodos(todos.filter((todo) => todo.id !== id));
-  // };
 
   // const toggleTodoCompleted = (id) => {
   //   setTodos(
